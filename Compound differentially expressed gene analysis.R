@@ -21,6 +21,4 @@ summary(res)
 
 diff_gene_deseq2 <-subset(res,pvalue< 0.05 & (log2FoldChange > 0.584962500721156 | log2FoldChange < -1))
 a <- data.frame(diff_gene_deseq2, stringsAsFactors = FALSE, check.names = FALSE)
-b <- data.frame(res,stringsAsFactors = FALSE, check.names = FALSE)
-write.table(a, 'compound.DESeq2.pvalue 0.05_log2FoldChange_0.584962500721156_log2FoldChange_-1.txt', col.names = NA, sep = '\t', quote = FALSE)
-write.table(b, 'compound.DESeq2.all.txt', col.names = NA, sep = '\t', quote = FALSE)
+write.table(a, 'compound.DEGs.txt', col.names = NA, sep = '\t', quote = FALSE)
