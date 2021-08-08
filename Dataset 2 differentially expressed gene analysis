@@ -4,7 +4,7 @@ gc()
 setwd('K:\\Dataset_2 ')
 getwd()
 
-expreset_probe_id=read.table('Dataset_1.txt',sep = '\t', quote = "",fill = T, comment.char = "!",header = T)
+expreset_probe_id=read.table('Dataset_2.txt',sep = '\t', quote = "",fill = T, comment.char = "!",header = T)
 probe_id_and_gene_symbol=read.table('probe_id_and_gene_symbol.txt',sep = '\t',quote = "",fill = T, comment.char = "!",header = T)
 names(expreset_probe_id)[1] = 'ID'
 expreset_gene_symbol=merge(expreset_probe_id,probe_id_and_gene_symbol,by="ID",all.x=T)
