@@ -1,0 +1,6 @@
+12.	names(expreset_probe_id)[1] = 'ID'  
+13.	expreset_gene_symbol=merge(expreset_probe_id,GLP10558_probe_id_and_gene_symbol,by="ID",all.x=T)  
+14.	expreset_gene_symbol[,1]=expreset_gene_symbol[,172]  
+15.	names(expreset_gene_symbol)[1] = 'gene symbol'  
+16.	expreset_gene_symbol=expreset_gene_symbol[,-172]  
+17.	expreset_agg <- aggregate(x = expreset_gene_symbol[,2:171],by = list(expreset_gene_symbol$`gene symbol`),FUN = mean)  
