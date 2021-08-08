@@ -1,10 +1,10 @@
 rm(list=ls())
 gc()
 
-setwd('K:\\compound_1')
+setwd('K:\\compound')
 getwd()
 
-expreset <- read.table('compound_1.txt',header = T)
+expreset <- read.table('compound.txt',header = T)
 expreset_agg <- aggregate(x = expreset[,2:7],by = list(expreset$gene_id),FUN = mean)
 rownames(expreset_agg) <- expreset_agg$Group.1
 expreset_agg <- expreset_agg[,-1]
@@ -22,5 +22,5 @@ summary(res)
 diff_gene_deseq2 <-subset(res,pvalue< 0.05 & (log2FoldChange > 0.584962500721156 | log2FoldChange < -1))
 a <- data.frame(diff_gene_deseq2, stringsAsFactors = FALSE, check.names = FALSE)
 b <- data.frame(res,stringsAsFactors = FALSE, check.names = FALSE)
-write.table(a, 'compound_1.DESeq2.pvalue 0.05_log2FoldChange_0.584962500721156_log2FoldChange_-1.txt', col.names = NA, sep = '\t', quote = FALSE)
-write.table(b, 'compound_1.DESeq2.all.txt', col.names = NA, sep = '\t', quote = FALSE)
+write.table(a, 'compound.DESeq2.pvalue 0.05_log2FoldChange_0.584962500721156_log2FoldChange_-1.txt', col.names = NA, sep = '\t', quote = FALSE)
+write.table(b, 'compound.DESeq2.all.txt', col.names = NA, sep = '\t', quote = FALSE)
